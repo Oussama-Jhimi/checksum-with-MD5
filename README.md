@@ -37,14 +37,14 @@ An embedded tool to calculate and verify MD5 checksums of critical regions in NA
 Modify `main.c` to:  
 - Adjust memory regions addresses/sizes  
 - Adapt UART initialization for your hardware
-  
+
+⚠️ Important Notes
+-UART initialization must be adapted to target hardware
+-Sizes must match actual partition layouts
+-Tested on ARM architecture (adaptable to other platforms)
+
 ```c
 RegionToCheck regions[] = {
     { "Name", (uint8_t*)ADDRESS, SIZE },
     // ...
 };
-```
-⚠️ Important Notes
--UART initialization must be adapted to target hardware
--Sizes must match actual partition layouts
--Tested on ARM architecture (adaptable to other platforms)
