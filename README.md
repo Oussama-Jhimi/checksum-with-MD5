@@ -1,52 +1,46 @@
-# NAND MD5 Checker - Vérification d'intégrité des régions mémoire NAND
+# NAND MD5 Checker - NAND Memory Integrity Verification  
+![Embedded Systems](https://img.shields.io/badge/Platform-Embedded-blue)  
+![MD5](https://img.shields.io/badge/Algorithm-MD5-green)  
 
-![Embedded Systems](https://img.shields.io/badge/Platform-Embedded-blue)
-![MD5](https://img.shields.io/badge/Algorithm-MD5-green)
+## 📌 Description  
+An embedded tool to calculate and verify MD5 checksums of critical regions in NAND flash memory. Ideal for validating firmware and filesystem integrity in embedded environments.  
 
-## 📌 Description
+## ✨ Key Features  
+✅ MD5 calculation for 5 configurable memory regions  
+📟 Clear UART output with region names  
+🏗️ MD5 implementation optimized for embedded systems  
+🔍 Firmware integrity verification  
+🛡️ Data corruption detection  
 
-Un outil embarqué pour calculer et vérifier les sommes de contrôle MD5 de régions critiques dans une mémoire flash NAND. Idéal pour valider l'intégrité du firmware et des systèmes de fichiers dans des environnements embarqués.
+## 🗃️ Verified Regions  
+| Region Name     | Memory Address | Size     |  
+|-----------------|----------------|----------|  
+| Bootstrap       | 0x00040000     | 0x1D00   |  
+| U-Boot          | 0x00060000     | 0x5B000  |  
+| RootFS          | 0x00200000     | 0x3B20000|  
+| DataFS          | 0x0A200000     | 0x480000 |  
+| FactoryDataFS   | 0x0F700000     | 0x1E0000 |  
 
-## ✨ Fonctionnalités
-
-- ✅ Calcul MD5 pour 5 zones mémoire configurables
-- 📟 Sortie UART claire avec noms de régions
-- 🏗️ Implémentation MD5 optimisée pour systèmes embarqués
-- 🔍 Vérification d'intégrité du firmware
-- 🛡️ Détection de corruption de données
-
-## 🗃️ Régions Vérifiées
-
-| Nom            | Adresse Mémoire | Taille    |
-|----------------|-----------------|-----------|
-| Bootstrap      | 0x00040000      | 0x1D00    |
-| U-Boot         | 0x00060000      | 0x5B000   |
-| RootFS         | 0x00200000      | 0x3B20000 |
-| DataFS         | 0x0A200000      | 0x480000  |
-| FactoryDataFS  | 0x0F700000      | 0x1E0000  |
-
-## 🚀 Utilisation
-
-1. Flasher le programme sur la cible
-2. Connecter la sortie UART à un terminal série
-3. Les MD5 s'affichent automatiquement au démarrage
-## Structure du Projet
+## 🚀 Usage  
+1. Flash the program to target device  
+2. Connect UART output to serial terminal  
+3. MD5 checksums will display automatically on startup
+   
+## 📂 Project Structure  
 .
-├── main.c          # Logique principale et configuration
-├── md5.c           # Implémentation MD5 optimisée
-├── md5.h           # Header pour l'algorithme MD5
-└── README.md       # Ce fichier
+├── main.c # Main logic and configuration
+├── md5.c # Optimized MD5 implementation
+├── md5.h # MD5 algorithm header
+└── README.md # This file
 
-## 🛠️ Configuration
-
-Modifier `main.c` pour :
-- Ajuster les adresses/taille des régions
-- Adapter l'initialisation UART selon le matériel
+## 🛠️ Configuration  
+Modify `main.c` to:  
+- Adjust memory regions addresses/sizes  
+- Adapt UART initialization for your hardware  
 
 ```c
 RegionToCheck regions[] = {
-    { "Nom", (uint8_t*)ADRESSE, TAILLE },
+    { "Name", (uint8_t*)ADDRESS, SIZE },
     // ...
 };
-
 
