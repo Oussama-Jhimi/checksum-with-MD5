@@ -38,12 +38,12 @@ Modify `main.c` to:
 - Adjust memory regions addresses/sizes  
 - Adapt UART initialization for your hardware
   
-  ```c
+```c
 RegionToCheck regions[] = {
     { "Name", (uint8_t*)ADDRESS, SIZE },
     // ...
 };
-
+```
 ⚠️ Important Notes
 -UART initialization must be adapted to target hardware
 
