@@ -40,7 +40,9 @@ Modify `main.c` to:
 
 ⚠️ Important Notes
 -UART initialization must be adapted to target hardware
+
 -Sizes must match actual partition layouts
+
 -Tested on ARM architecture (adaptable to other platforms)
 
 ```c
